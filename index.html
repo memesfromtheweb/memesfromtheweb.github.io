@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +47,19 @@
 
         .meme-card img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
             border-radius: 5px;
+        }
+
+        /* Adjusted size for Meme 14 */
+        #meme14 {
+            width: 400px;
+        }
+
+        /* Adjusted size for Meme 15 */
+        #newMeme {
+            width: 400px;
         }
 
         .modal {
@@ -84,92 +96,94 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Memes From The Web</h1>
     </header>
     <main>
-        <!-- Meme Cards -->
-        <div class="meme-card" onclick="openModal(this)">
+        <div class="meme-card" id="meme1" onclick="openModal(this)">
             <img src="https://i.pinimg.com/474x/ee/05/48/ee054872761d9054bacf8c2c1e97ee73.jpg" alt="Meme 1">
         </div>
 
-        <div class="meme-card" onclick="openModal(this)">
+        <div class="meme-card" id="meme2" onclick="openModal(this)">
             <img src="https://www.lifewire.com/thmb/PiAB30sXKFcKSO_r72hP5-Hwq_E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/BabywithFistmeme2-0c317ccc4d3a44c68098cd08f4ecac74.jpg" alt="Meme 2">
         </div>
 
-        <div class="meme-card" onclick="openModal(this)">
+        <div class="meme-card" id="meme3" onclick="openModal(this)">
             <img src="https://static.demilked.com/wp-content/uploads/2022/09/it-humor-memes-5.jpeg" alt="Meme 3">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme4" onclick="openModal(this)">
             <img src="https://i.pinimg.com/736x/1b/d2/f0/1bd2f0b2daa9cf40d2bc1dd13ad34257.jpg" alt="Meme 4">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme5" onclick="openModal(this)">
             <img src="https://viewthevibe.com/wp-content/uploads/2013/11/success-kid.png" alt="Meme 5">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme6" onclick="openModal(this)">
             <img src="https://preview.redd.it/that-right-there-emotional-damage-v0-1gckqr0syjd81.jpg?auto=webp&s=b3915931d2bf43ba5ccba0c02f7ff6821bfd6900" alt="Meme 6">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme7" onclick="openModal(this)">
             <img src="https://i.imgflip.com/649zk9.jpg" alt="Meme 7">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme8" onclick="openModal(this)">
             <img src="https://media.makeameme.org/created/i-was-late-5c1912.jpg" alt="Meme 8">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme9" onclick="openModal(this)">
             <img src="https://i.pinimg.com/originals/16/cd/6f/16cd6fe8c9104db8b9bf381d8f4f3487.jpg" alt="Meme 9">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme10" onclick="openModal(this)">
             <img src="https://preview.redd.it/pfmjfz92xz171.jpg?width=640&crop=smart&auto=webp&s=7dafc85ad59256fbd739ba943163881d1ec281e0" alt="Meme 10">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme11" onclick="openModal(this)">
             <img src="https://preview.redd.it/i-have-read-and-agreed-to-the-terms-and-conditions-v0-v0lh7mzjs6la1.jpg?width=640&crop=smart&auto=webp&s=ea88249ac6236755152ced29b9a5334c4cccc8d1" alt="Meme 11">
         </div>
-
-        <div class="meme-card" onclick="openModal(this)">
+        
+        <div class="meme-card" id="meme12" onclick="openModal(this)">
             <img src="https://i.imgflip.com/7p1psy.jpg" alt="Meme 12">
         </div>
+        
+        <div class="meme-card" id="meme13" onclick="openModal(this)">
+            <img src="https://www.adobe.com/express/create/media_147b85d9e4cb15b95023a74537b8dd2058027f26f.png?width=750&format=png&optimize=medium" alt="Meme 13">
+        </div>
+        
+        <div class="meme-card" id="meme14" onclick="openModal(this)">
+            <img src="https://www.boredpanda.com/blog/wp-content/uploads/2022/09/relatable-funny-memes-23-63281fd2f1184__700.jpg" alt="Meme 14">
+        </div>
+
+        <div class="meme-card" id="newMeme" onclick="openModal(this)">
+            <img src="https://assets-prd.ignimgs.com/2022/07/07/minecraft-memes-1657229425733.jpg" alt="New Meme">
+        </div>
     </main>
-    <div class="modal" id="modal">
-        <span class="modal-close" onclick="closeModal()">X</span>
-        <img id="modal-image" src="" alt="Meme">
+
+    <div class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img src="" alt="Meme">
     </div>
+
     <footer>
-        &copy; 2023 Ethan Yu. All rights reserved.
+        <p>&copy; 2023 Ethan Yu. All rights reserved.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var memeCards = document.querySelectorAll('.meme-card');
-            var modal = document.getElementById('modal');
-            var modalImage = document.getElementById('modal-image');
-            var modalClose = document.querySelector('.modal-close');
-    
-            memeCards.forEach(function (card) {
-                card.addEventListener('click', function () {
-                    modalImage.src = card.querySelector('img').src;
-                    modal.style.display = 'flex';
-                });
-            });
-    
-            modalClose.addEventListener('click', function () {
-                modal.style.display = 'none';
-            });
-    
-            window.addEventListener('click', function (event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
+        function openModal(card) {
+            const modal = document.querySelector('.modal');
+            const modalImg = modal.querySelector('img');
+            modal.style.display = 'flex';
+            modalImg.src = card.querySelector('img').src;
+        }
+
+        function closeModal() {
+            document.querySelector('.modal').style.display = 'none';
+        }
     </script>
 </body>
+
 </html>
