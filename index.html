@@ -27,6 +27,7 @@
         }
 
         .meme-card {
+            position: relative;
             width: 300px;
             margin: 20px;
             padding: 15px;
@@ -36,6 +37,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
             text-align: center; /* Center the text within the meme card */
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
         }
 
         .meme-card:hover {
@@ -48,10 +50,31 @@
             border-radius: 5px;
         }
 
-        .meme-card p {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #000; /* Black for the description */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 5px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
         }
 
         footer {
@@ -66,7 +89,9 @@
         <h1>Memes From The Web</h1>
     </header>
     <main>
-      
+        <div class="meme-card" onclick="openModal(this)">
+            <img src="https://i.pinimg.com/474x/ee/05/48/ee054872761d9054bacf8c2c1e97ee73.jpg" alt="Meme 1">
+        </div>
         <div class="meme-card">
             <img src="https://i.pinimg.com/474x/ee/05/48/ee054872761d9054bacf8c2c1e97ee73.jpg" alt="Meme 1">
         </div>
@@ -115,6 +140,39 @@
     <img src="https://i.imgflip.com/7p1psy.jpg" alt="Meme 3">
 </div>
     </main>
+    <div class="modal" id="modal">
+        <span class="modal-close" onclick="closeModal()">X</span>
+        <img id="modal-image" src="" alt="Meme">
+    </div>
     <footer>
         &copy; 2023 Ethan Yu. All rights reserved.
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var memeCards = document.querySelectorAll('.meme-card');
+            var modal = document.getElementById('modal');
+            var modalImage = document.getElementById('modal-image');
+            var modalClose = document.querySelector('.modal-close');
+    
+            memeCards.forEach(function (card) {
+                card.addEventListener('click', function () {
+                    modalImage.src = card.querySelector('img').src;
+                    modal.style.display = 'flex';
+                });
+            });
+    
+            modalClose.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+    
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
